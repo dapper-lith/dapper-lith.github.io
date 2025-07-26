@@ -1,0 +1,27 @@
+@font-face {
+	font-family: IBMRegular;
+	src: url('./fonts/IBMPlexMono-Regular.eot');
+	src: url('./fonts/IBMPlexMono-Regular.eot?#iefix') format('embedded-opentype'),
+		 url('./fonts/IBMPlexMono-Regular.woff2') format('woff2'),
+		 url('./fonts/IBMPlexMono-Regular.woff') format('woff'),
+		 url('./fonts/IBMPlexMono-Regular.ttf') format('truetype'),
+		 url('./fonts/IBMPlexMono-Regular.svg#IBMPlexMono-Regular') format('svg');
+}
+		
+@font-face {
+	font-family: IBMBold;
+	src: url('./fonts/IBMPlexMono-Bold.eot');
+	src: url('./fonts/IBMPlexMono-Bold.eot?#iefix') format('embedded-opentype'),
+		 url('./fonts/IBMPlexMono-Bold.woff2') format('woff2'),
+		 url('./fonts/IBMPlexMono-Bold.woff') format('woff'),
+		 url('./fonts/IBMPlexMono-Bold.ttf') format('truetype'),
+		 url('./fonts/IBMPlexMono-Bold.svg#IBMPlexMono-Bold') format('svg');
+}
+
+a {
+	font-family: IBMRegular;
+}
+	
+h1 {
+	font-family: IBMBold;
+}
