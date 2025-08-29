@@ -1,11 +1,47 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Frameset//EN">
 <html>
-	<head><title>lith's lair</title></head>
-	<frameset rows="64,*" frameborder="0">
-		<frame scrolling="no" noresize="noresize" name="top" src="top.htm">
-		<frameset cols="150,*">
-			<frame noresize="noresize" name="left" src="left.htm">
-			<frame noresize="noresize" name="main" src="home.htm">
+	<head>
+		<title>lith's lair</title>
+		<link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	</head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script>
+	const urlParams = new URLSearchParams(window.location.search);
+    const page = urlParams.get("page") || "home.htm";
+	
+	//unironically used grok for this, im sorry chat
+	function updateUrl() {
+        const mainFrame = document.getElementsByName("main")[0];
+        if (mainFrame && mainFrame.contentWindow.location.pathname) {
+            const path = mainFrame.contentWindow.location.pathname;
+            const relativePath = path.replace(/^\/+/, '');
+            history.replaceState(null, '', `/?page=${relativePath}`);
+        }
+    }
+	
+	document.write(
+		window.innerWidth < 600 ?
+		`<frameset rows="64,32,*" frameborder="0">\
+			<frame scrolling="no" noresize="noresize" name="top" src="top.htm">\
+			<frame scrolling="no" noresize="noresize" name="topbar" src="topbar.htm">\
+			<frame noresize="noresize" name="main" src="${page}" onload="updateUrl()">\
+		</frameset>` :
+		`<frameset rows="64,*" frameborder="0">\
+			<frame scrolling="no" noresize="noresize" name="top" src="top.htm">\
+			<frameset cols="150,*">\
+				<frame noresize="noresize" name="left" src="left.htm">\
+				<frame noresize="noresize" name="main" src="${page}" onload="updateUrl()">\
+			</frameset>\
+		</frameset>`
+	);
+	</script>
+	<noscript>
+		<frameset rows="64,*" frameborder="0">
+			<frame scrolling="no" noresize="noresize" name="top" src="top.htm">
+			<frameset cols="150,*">
+				<frame noresize="noresize" name="left" src="left.htm">
+				<frame noresize="noresize" name="main" src="home.htm">
+			</frameset>
 		</frameset>
-	</frameset>
+	</noscript>
 </html>
